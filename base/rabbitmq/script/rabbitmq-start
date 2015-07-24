@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ulimit -n 1024
+chown -R rabbitmq:rabbitmq ${RABBITMQ_BASE_DIR}
+exec rabbitmq-server $@
