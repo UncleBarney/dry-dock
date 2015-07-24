@@ -9,7 +9,7 @@ ENV RABBITMQ_LOG_BASE ${RABBITMQ_BASE_DIR}/log
 ENV RABBIGMQ_MNESIA_BASE ${RABBITMQ_BASE_DIR}/mnesia
 
 # - Add exec script
-ADD script/rabbitmq-start /usr/local/bin/
+ADD resources/script/rabbitmq-start /usr/local/bin/
 
 # - installation of rabbitmq
 RUN wget -qO - https://www.rabbitmq.com/rabbitmq-signing-key-public.asc | apt-key add -
