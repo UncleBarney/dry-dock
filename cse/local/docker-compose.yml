@@ -2,23 +2,37 @@
 # - use official rabbitmq image [https://registry.hub.docker.com/_/rabbitmq/]
 rabbitmq:
   image: rabbitmq
-  expose:
-    - "15672"
+  ports:
+    - "15672:15672"
+    - "5672:5672"
 
 # - definition for redis
 # - use official redis image [https://registry.hub.docker.com/_/redis/]
 redis:
   image: redis
-  expose:
-    - "6379"
+  ports:
+    - "6379:6379"
 
 # - definition for kafka
 # - use spotify kafka image [https://registry.hub.docker.com/u/spotify/kafka/]
 kafka:
   image: spotify/kafka
-  expose:
-    - "9092"
-    - "2181"
+  ports:
+    - "9092:9092"
+    - "2181:2181"
   environment:
     - ADVERTISED_PORT=9092
     - ADVERTISED_HOST=`boot2docker ip`
+
+# - definition for cse play! app
+cse:
+  command: universal/stage/bin/stack
+  build: .
+  volumes:
+    - target/:/code
+  ports:
+    - "9000:9000"
+  links:
+    - rabbitmq
+    - redis
+    - kafka
