@@ -1,0 +1,13 @@
+prerequisite:
+  - boot2docker: https://docs.docker.com/installation/mac/
+  - docker-compose: https://docs.docker.com/compose/install/
+
+steps:
+  - start boot2docker and get the VM IP using "boot2docker ip"
+  - download the docker-compose.yml and Dockerfile from: https://git.autodesk.com/gaoh/dry-dock/tree/master/cse/local
+  - put the files into cse/stack directory
+  - also put logger.xml into cse/stack directory to enable logging
+  - change all the "127.0.0.1" to the VM IP you get in step 1
+  - under cse/stack, run "./activator stage" to build cse play! application
+  - under cse/stack, run "docker-compose run cse"
+  - stop the whole app by running "docker-compose stop", kill using "docker compose kill"

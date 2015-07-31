@@ -14,6 +14,8 @@ RUN apt-get install -y oracle-java8-installer
 
 # - create folder for code
 RUN mkdir /code
+RUN mkdir /conf
 WORKDIR /code
-ADD . /code/
+ADD target/ /code/
+ADD logger.xml /conf/logger.xml
 EXPOSE 9000

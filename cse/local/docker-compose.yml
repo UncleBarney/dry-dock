@@ -22,11 +22,11 @@ kafka:
     - "2181:2181"
   environment:
     - ADVERTISED_PORT=9092
-    - ADVERTISED_HOST=`boot2docker ip`
+    - ADVERTISED_HOST=192.168.59.103
 
 # - definition for cse play! app
 cse:
-  command: universal/stage/bin/stack
+  command: universal/stage/bin/stack -Dlogger.file=/conf/logger.xml
   build: .
   volumes:
     - target/:/code
