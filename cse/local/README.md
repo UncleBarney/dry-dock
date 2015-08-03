@@ -1,10 +1,10 @@
-prerequisite:
+# prerequisite
   - boot2docker: https://docs.docker.com/installation/mac/
   - docker-compose: https://docs.docker.com/compose/install/
   - redis-cli: http://redis.io/download/
   - git clone https://git.autodesk.com/cloudplatform-compute/cse and switch to develop branch
 
-steps:
+# steps
   - start boot2docker and get the VM IP using "boot2docker ip"
   - download the docker-compose.yml, logger.xml and Dockerfile from: https://git.autodesk.com/gaoh/dry-dock/tree/master/cse/local
   - put the files into cse/stack directory
@@ -14,7 +14,7 @@ steps:
   - under cse/stack, run "docker-compose up"
   - stop the whole app by running "docker-compose stop", kill using "docker compose kill"
 
-develop against the local setup:
+# develop against the local setup
   - start the whole setup using "docker-compose up", and you will have a clean cse environment.
     please note at this point, you are still not able to use cse yet. you will have to register a channel.
   - in order to use cse, you need to create a record in redis. you can do that by:
