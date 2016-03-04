@@ -31,7 +31,6 @@ docker run --name mesos_local_mesos_slave -d \
   -v /sys:/sys \
   -v /prod:/prod \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -v /usr/local/bin/docker:/usr/bin/docker:ro \
   quay.io/autodeskcloud/mesos-slave
 
 docker run --name mesos_local_marathon -d \
