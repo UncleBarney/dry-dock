@@ -1,0 +1,401 @@
+ca_certs:
+  ca:
+  abus-inter:
+
+instance-config:
+  nofiles_limit: 16384
+  splunk:
+    inputs_abus-sensu:
+      monitor:///var/sensu/sensu: 'service'
+    inputs_abus-dbg:
+      monitor:///var/log/tomcat6/catalina.out: 'service'
+      monitor:///var/log/tomcat6/webApp_logback.log: 'service'
+    inputs_health-adapter:
+      monitor:///var/log/tomcat6/catalina.out: 'service'
+      monitor:///var/log/tomcat6/webApp_logback.log: 'service'
+    inputs_abus_inspector:
+      monitor:///var/log/tomcat6/catalina.out: 'service'
+      monitor:///var/log/tomcat6/webApp_logback.log: 'service'
+    inputs_abus_rabbitmq:
+      monitor:///var/log/rabbitmq/rabbit*.log: 'service'
+    inputs_abus_registry:
+      monitor:///var/log/tomcat6/catalina.out: 'service'
+      monitor:///var/log/tomcat6/webApp_logback.log: 'service'
+    inputs_abus_server:
+      monitor:///var/log/abus/abus.log: 'service'
+    inputs_webdav-adapter:
+      monitor:///var/log/tomcat6/catalina.out: 'service'
+      monitor:///var/log/tomcat6/webApp_logback.log: 'service'
+
+sysctl:
+  attributes:
+
+hostname:
+
+java:
+  jdk_version: 7
+  install_flavor: 'oracle'
+  java_home:
+  oracle:
+    accept_oracle_download_terms: true
+
+maven_artifact:
+  access_key_id: 'AKIAIPWAC53ACDXFBAPA'
+  secret_access_key:
+  repository:
+    remote: # - true or false
+    url: # - remote maven artifact url?
+
+rabbitmq:
+  version: '3.4.3'
+  disabled_users:
+    - 'guest'
+
+mongodb:
+  config:
+    auth: true
+
+collectd:
+  hostname: 'node.name' # not sure what this is
+
+abus:
+  env_jvm_options:
+  debug:
+    enabled: false
+    port: 8081
+    heapDumpPath:
+    yourkit:
+      enabled: false
+      version: '2015-build-15086'
+      source: artifactory
+  user: 'abus'
+  group: 'abus'
+  memory:
+    heapSizeMB: 1024
+    permSizeMB: 128
+    cacheSizeMB: 256
+  core:
+    port: 8081
+    eventLogSize: 50000000
+    backlogAccept: 1024
+    enableGZipCompression: true
+    upstreamConnection:
+      poolSize: 5
+      numBossThreads: 5
+      connectTimeoutSecs: 15
+      disableKeepAlive: false
+      breakerResetTimeout: 30
+      breakerTripThreshold: 3
+    skipFacetValidationOnServices: ""
+    registryEvictAfterTTLSecs: 360
+    modules:
+      event:
+        instances: 1
+      adminMessage:
+        instances: 1
+      registry:
+        instances: 1
+      extension:
+        instances: 1
+      eventSync:
+        instances: 1
+  hazelcast:
+    config_file:
+    mancenter: false
+    mancenter_host: 'localhost:8080'
+    version: '3.2.3'
+    file_version: '3.2.3'
+    group_name: nil
+    group_password: nil
+    aws:
+      enabled: false
+      access_key_id: nil
+      secret_access_key: nil
+      security_group: nil
+      tag_key:
+      tag_value:
+  logrotate:
+    frequency: 'daily'
+    rotate: 14
+  jmx:
+    enabled: true
+  client:
+    host:
+    port:
+  versions:
+    inspector:
+    server:
+    webdav:
+    abus-health:
+  vertx:
+    maxWorkerPoolSize: 20
+  vertx_metricsLogger:
+    enabled: false
+  vertx3: false
+  config_dir: '/etc/abus'
+  config_file:
+  logging:
+    folder: '/var/log/abus'
+    file_name: 'abus.log'
+    level: 'info'
+    debugClasses:
+    logback:
+      config:
+    vertx_metrics:
+      file_name: 'vertx-metrics.log'
+    metrics:
+      file_name: 'abus-metrics.log'
+      zookeeper: nil
+      topic: nil
+  ssl:
+    disableSsl:
+    keystorePath:
+    keystorePassword:
+    truststorePath:
+    truststorePassword:
+  rabbitmq:
+    user:
+    password:
+    consumerPrefetchCount: 100
+    key:
+    secret:
+    security_group:
+    host:
+    mgmt_api_port:
+  sns:
+    region:
+    key:
+    secret:
+  group:
+  mongo:
+    host:
+    port:
+    db:
+    user:
+    password:
+  simpledb:
+    region:
+    key:
+    secret:
+    eventing:
+      eventSubscription:
+    registryTableName:
+      project:
+      projectServiceAdapterConfig:
+      projectTemplate:
+      serviceAdapter:
+  jacoco:
+    enabled: false
+    output_dir: '/var/log/jacoco'
+    collect_dir: '/vagrant/jacoco'
+    output_file: 'jacoco-abus.exec'
+    version: '0.7.0.201403182114'
+    install_dir: '/opt/jacoco'
+    agent_path:
+    download_url:
+  dynamodb:
+    region:
+    key:
+    secret:
+    tableName:
+  metricsLogger:
+    cleanUpWaitTimeMS:
+    startEventLogTimeoutMS:
+    statsD:
+      prefix:
+      host:
+      port:
+  tracing:
+    collectorUrl:
+    sampleRate:
+    debugFlag:
+  serviceinfo:
+    initinfo:
+      adapterHost:
+      adapterPort:
+
+abus_mgmt_console:
+  ssl:
+    disableSsl: false
+  sslPort: 8443
+  ui: true
+  adminDN:
+
+abus_server_feature_test:
+  version:
+  server_url:
+  folder: '/opt/abus-feature-test'
+  user: 'feature_test'
+  logging:
+    config:
+    level: 'debug'
+  ssl:
+    keystorePassword: nil
+    keystorePath:
+    truststorePassword: nil
+    truststorePath:
+    cert:
+  mock_adapter:
+    port:
+    host:
+  registry_api_endpoint:
+
+tomcat:
+  debug:
+  java_options:
+  lib_dir:
+  log_dir:
+  home:
+  user:
+  base_version:
+  max_threads:
+  proxy_port:
+  port:
+  ssl_port:
+  ssl_max_threads:
+  ajp_port:
+  jvm_route:
+  tomcat_auth:
+  webapp_dir:
+  group:
+  config_dir:
+  keystore_file:
+  keystore_password:
+  truststore_file:
+  truststore_password:
+  enable_gzip:
+    http: false
+    https: false
+    compression_min_size: 2048
+    no_compression_userAgents: 'gozilla, traviata'
+    mime_type: 'application/json'
+
+riemann:
+  riemann:
+    base_path: '/opt/riemann'
+    file_name: 'riemann-0.2.10-SNAPSHOT-standalone.jar'
+    config_name: 'riemann.config'
+    graphit-host: '54.215.255.128'
+    graphit-port: '5001'
+  riemann-jmx:
+    base_path: '/opt/riemann'
+    file_name: 'riemann-jmx-clj-0.1.0-SNAPSHOT-standalone.jar'
+    config_name: 'riemann-jmx.yaml'
+  sanity-test:
+    base_path: '/opt/riemann'
+    file_name: 'sanity-test.sh'
+
+inspector:
+  registry_host:
+  registry_port:
+  registry_contextPath:
+  rabbit_mgmt_port:
+  bim_host:
+  bim_port:
+  oxygen_host:
+  oxygen_consumerkey:
+  oxygen_consumersecret:
+
+# - attributes found in abus-debugger cookbook
+abusdbg:
+  local_repo: '/tmp/abusdbg-repository/'
+  version: # - self provided version
+  applicationUrl:
+  meldor:
+    endpoint:
+  oxygen:
+    endpoint: 'http://accounts-dev.autodesk.com/'
+    customerKey: nil
+    consumerSecret: nil
+
+abus_tomcat:
+  base_version:
+  mirror: 'http://supergsego.com'
+  nexus:
+    root: 'http://a360nexus.autodesk.com/nexus/content/repositories/thirdparty'
+    path: 'org/apache/tomcat'
+  package:
+    6:
+      version:
+      checksum:
+      extra:
+        tomcat-juli:
+        tomcat-juli-adapters:
+    7:
+      version:
+      checksum:
+      extra:
+        tomcat-juli:
+        tomcat-juli-adapters:
+    8:
+      version:
+      checksum:
+      extra:
+        tomcat-juli:
+        tomcat-juli-adapters:
+
+  keystore_file: 'keystore.jks'
+  truststore_file: 'truststore.jks'
+  keystore_certs:
+  truststore_certs:
+  slf4j:
+    version: '1.7.7'
+    files:
+      slf4j-api:
+      log4j-over-slf4j:
+      jul-to-slf4j:
+      jcl-over-slf4j:
+      osgi-over-slf4j:
+  logback:
+    version: '1.2.2'
+    files:
+      logback-core:
+      logback-classic:
+  logging:
+    level: 'info'
+    file_name: 'webApp_logback.log'
+  logrotate:
+    frequency: 'daily'
+    rotate: '14'
+
+splunk:
+  outputs:
+    tcpout:
+      SplunkDevGroup:
+        server: '54.221.251.115:9997, 54.225.89.152:9997'
+        maxQueueSize: '6MB'
+    tcpout:
+      SplunkProdGroup:
+        server: 'splunk-idx.cloud.autodesk.com:9997'
+        maxQueueSize: '6MB'
+  forwarder_root: 'http://download.splunk.com/release'
+  forwarder_home: '/opt/splunkforwarder'
+  forwarder_version: '5.0.3'
+  forwarder_build: '163460'
+  source_type_suffix: ''
+
+turbine:
+  download:
+    source:
+    checksum:
+  abus_role: 'abus-server'
+  hystrix_dashboard:
+    version: '1.4.0-RC4'
+    download:
+      source:
+      checksum:
+
+meldore-server:
+  version:
+
+vagrant_chef_solo:
+  environment: nil
+
+newrelic:
+  java_agent:
+  install_dir:
+  license:
+
+dot_net_adapters:
+  adapters_to_deploy:
+  dest_folder:
