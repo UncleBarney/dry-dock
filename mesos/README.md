@@ -29,4 +29,3 @@ This setup include:
  * "MARATHON_MASTER": "MESOS_LOCALSETUP_HOST_IP:5051",
  *  "ochopod_zk" : "zk://MESOS_LOCAL_SETUP_HOST_IP:2181"
 * You must replace MESOS_LOCALSETUP_HOST_IP with the actual value
-* You must delete the mesosphere volumes tag
