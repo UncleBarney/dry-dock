@@ -28,6 +28,7 @@ This setup include:
 * Run ```sh stop.sh``` to stop up Mesos local setup and all Marathon started containers
 
 ## How to add Ochothon
+Ochothon is an Autodesk Opensource project to help you create, query, and manage your ochopod containers. For more information about Ochothon, check the [github repo](https://github.com/autodesk-cloud/ochothon).
 * Add the following env variables to dcos.json definition:
  * "MARATHON_MASTER": "MESOS_LOCALSETUP_HOST_IP:5051",
  *  "ochopod_zk" : "zk://MESOS_LOCAL_SETUP_HOST_IP:2181"
