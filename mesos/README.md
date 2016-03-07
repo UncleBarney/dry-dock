@@ -22,3 +22,10 @@ This setup include:
   export MESOS_LOCALSETUP_HOST_IP=`docker-machine ip mesos_local`
   ```
 * Run ```sh start.sh``` to spin up Mesos local setup
+* Run ```sh stop.sh``` to stop up Mesos local setup and all Marathon started containers
+
+## How to add Ochothon
+* Add the following env variables to dcos.json definition:
+ * "MARATHON_MASTER": "MESOS_LOCALSETUP_HOST_IP:5051",
+ *  "ochopod_zk" : "zk://MESOS_LOCAL_SETUP_HOST_IP:2181"
+* You must replace MESOS_LOCALSETUP_HOST_IP with the actual value 
