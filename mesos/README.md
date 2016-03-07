@@ -1,5 +1,6 @@
 # Mesos local setup with docker
 
+## Overview
 A simple but flexible mesos setup running inside docker container.
 This setup include:
 * A Zookeeper node
@@ -15,10 +16,12 @@ This setup include:
 ## How to Use
 * Make sure your docker daemon is running
 * Export the environment variable: MESOS_LOCALSETUP_HOST_IP to your docker daemon ip, for example:
-  * if you have boot2docker installed, you can do: ```
+  * if you have boot2docker installed, you can do:
+  ```
   export MESOS_LOCALSETUP_HOST_IP=`boot2docker ip`
   ```
-  * if you have docker-machine installed,  you can do: ```
+  * if you have docker-machine installed,  you can do:
+  ```
   export MESOS_LOCALSETUP_HOST_IP=`docker-machine ip mesos_local`
   ```
 * Run ```sh start.sh``` to spin up Mesos local setup
