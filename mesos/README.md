@@ -29,7 +29,14 @@ This setup include:
 
 ## How to add Ochothon
 Ochothon is an Autodesk Opensource project to help you create, query, and manage your ochopod containers. For more information about Ochothon, check the [github repo](https://github.com/autodesk-cloud/ochothon).
+* In dcos.json, remove the following section:
+  ```
+  "acceptedResourceRoles":
+       [
+           "slave_public"
+       ]
+  ```
 * Add the following env variables to dcos.json definition:
- * "MARATHON_MASTER": "MESOS_LOCALSETUP_HOST_IP:5051",
+ * "MARATHON_MASTER": "MESOS_LOCALSETUP_HOST_IP:80",
  *  "ochopod_zk" : "zk://MESOS_LOCAL_SETUP_HOST_IP:2181"
 * You must replace MESOS_LOCALSETUP_HOST_IP with the actual value
