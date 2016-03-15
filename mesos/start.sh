@@ -4,7 +4,7 @@ docker run --name mesos_local_zk -d \
   -p 2181:2181 \
   -p 2888:2888 \
   -p 3888:3888 \
-  quay.io/autodeskcloud/zookeeper
+  unclebarney/zookeeper
 
 sleep 5s
 
@@ -19,7 +19,7 @@ docker run --name mesos_local_mesos_master -d \
   -e "MESOS_QUORUM=1" \
   -e "MESOS_REGISTRY=in_memory" \
   -e "MESOS_WORK_DIR=/var/lib/mesos" \
-  quay.io/autodeskcloud/mesos-master
+  unclebarney/mesos-master
 
 sleep 5s
 
@@ -40,11 +40,11 @@ docker run --name mesos_local_mesos_slave -d \
   -v /sys:/sys \
   -v /prod:/prod \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  quay.io/autodeskcloud/mesos-slave
+  unclebarney/mesos-slave
 
 sleep 5s
 
 docker run --name mesos_local_marathon -d \
  -p 80:8080 \
- quay.io/autodeskcloud/marathon \
+ unclebarney/marathon \
  --master zk://${MESOS_LOCALSETUP_HOST_IP}:2181/mesos --zk zk://${MESOS_LOCALSETUP_HOST_IP}:2181/marathon
